@@ -3,6 +3,6 @@
 
 int main(int argc, char* argv[])
 {
-	std::cout << "Start battle!" << std::endl;
+	std::cout << "Start bafttle!" << std::endl;
 	return EXIT_SUCCESS;
 }
