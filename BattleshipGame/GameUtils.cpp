@@ -64,6 +64,7 @@ int GameUtils::fillBoardFromFile(char path[], char **&board) {
     }
 }
 
+//todo validate
 int GameUtils::validateBoard(char **board) {
     int err;
     char currShip;
