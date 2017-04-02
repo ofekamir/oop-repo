@@ -1,0 +1,3 @@
+C:/Users/ariko/Desktop/repo/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/ariko/Desktop/repo/cmake-build-debug/CMakeFiles/repo.dir
+C:/Users/ariko/Desktop/repo/cmake-build-debug/CMakeFiles/edit_cache.dir
