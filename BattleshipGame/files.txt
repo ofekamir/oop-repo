@@ -1,0 +1,17 @@
+BattleshipGame.vcxproj
+BattleshipGame.vcxproj.filters
+BattleshipGame.vcxproj.user
+clean_movesA.attack-a
+clean_movesB.attack-b
+CMakeLists.txt
+files.txt
+Game.cpp
+GameUtils.cpp
+GameUtils.h
+good_board_0.sboard
+IBattleshipGameAlgo.h
+Player.cpp
+Player.h
+Ship.cpp
+Ship.h
+students.txt
