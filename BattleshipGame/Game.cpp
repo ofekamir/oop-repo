@@ -26,6 +26,8 @@ int main(int argc, char* argv[])
 	vector<string> inputFiles = { "", "", "" }; //[battle board, playerA's attack board, playerB's attack board]
 	vector<string> messages;
 
+	//ofek you are gay
+
 	//Prepare the game:
 	err = GameUtils::getInputFiles(inputFiles, messages, argc, argv);
 	if (err == ERROR)
