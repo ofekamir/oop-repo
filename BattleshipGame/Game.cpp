@@ -13,6 +13,7 @@ using namespace std;
 
 void GameOver(int winner, Player*(players)[2]);
 
+// ofek you are super gay fucker
 
 int main(int argc, char* argv[])
 {

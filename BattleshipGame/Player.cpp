@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 
-// ofek you are super gay fucker
 // Constructor
 Player::Player(int playerNum, string attackFilePath) {
 	_playerNum = playerNum;
