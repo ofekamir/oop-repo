@@ -13,7 +13,6 @@
 #define WRONG_PATH_ERR(p) printf("Wrong path: %s\n",p)
 #define MIN(a, b) ((a < b) ? (a) : (b))
 /* helper methods declerations */
-void free2DCharArr(char** arr, int cols, int rows);
 bool isShip(char c);
 /* class methods implementation */
 BoardFactory::BoardFactory(int rows, int cols, string path)
@@ -22,6 +21,22 @@ BoardFactory::BoardFactory(int rows, int cols, string path)
 	boardRows = rows + 2;
 	boardCols = cols + 2;
 	boardPath = path;
+}
+
+void BoardFactory::destroyBoard(char** board, int rows, int cols)
+{
+	if (board == nullptr)
+	{
+		return;
+	}
+	for (int i = 0; i < cols; i++)
+	{
+		free(board[i]);
+		board[i] = nullptr;
+	}
+	free(board);
+	// ReSharper disable once CppAssignedValueIsNeverUsed
+	board = nullptr;
 }
 
 // ReSharper disable once CppParameterValueIsReassigned
@@ -39,15 +54,15 @@ int BoardFactory::getPlayerBoards(char** boardA, char** boardB)
 	boardB = initBoard();
 	if (boardB == nullptr)
 	{
-		free2DCharArr(boardA, boardRows, boardCols);
+		destroyBoard(boardA, boardRows, boardCols);
 		return ERROR;
 	}
 	// allocate memory
 	fullBoard = initBoard();
 	if (fullBoard == nullptr)
 	{
-		free2DCharArr(boardA, boardRows, boardCols);
-		free2DCharArr(boardB, boardRows, boardCols);
+		destroyBoard(boardA, boardRows, boardCols);
+		destroyBoard(boardB, boardRows, boardCols);
 		return ERROR;
 	}
 	// fill fullBoard with empty cells
@@ -56,19 +71,22 @@ int BoardFactory::getPlayerBoards(char** boardA, char** boardB)
 	err = fillBoardFromFile();
 	if (err)
 	{
+		destroyBoard(boardA, boardRows, boardCols);
+		destroyBoard(boardB, boardRows, boardCols);
+		destroyBoard(fullBoard, boardRows, boardCols);
 		return ERROR;
 	}
 	// fill players' boards with their relevant ships
 	fillPlayerBoards(boardA, boardB);
+	destroyBoard(fullBoard, boardRows, boardCols);
 	return SUCCESS;
 }
 
 BoardFactory::~BoardFactory()
 {
-	if (fullBoard != nullptr)
-	{
-		free2DCharArr(fullBoard, boardCols, boardRows);
-	}
+
+	destroyBoard(fullBoard, boardCols, boardRows);
+
 }
 
 void BoardFactory::fillPlayerBoards(char** boardA, char** boardB) const
@@ -108,7 +126,7 @@ char** BoardFactory::initBoard() const
 		if (board[i] == nullptr)
 		{
 			ALLOC_ERR;
-			free2DCharArr(board, i, boardCols);
+			destroyBoard(board, i, boardCols);
 			return nullptr;
 		}
 	}
@@ -125,7 +143,8 @@ void BoardFactory::cleanBoard() const
 	}
 }
 
-int BoardFactory::fillBoardFromFile() {
+int BoardFactory::fillBoardFromFile() const
+{
 	string line;
 	int row = 1, err;
 	size_t m;
@@ -151,7 +170,8 @@ int BoardFactory::fillBoardFromFile() {
 	return SUCCESS;
 }
 
-int BoardFactory::validateBoard() {
+int BoardFactory::validateBoard() const
+{
 	bool err;
 	char visited = 'x';
 	char illgeal = 'i';
@@ -251,7 +271,7 @@ int BoardFactory::validateBoard() {
 		ADJ_SHIPS_ERR;
 		err = true;
 	}
-	free2DCharArr(boardCpy, boardCols, boardRows);
+	destroyBoard(boardCpy, boardCols, boardRows);
 	if (err)
 	{
 		return ERROR;
@@ -401,14 +421,4 @@ bool isShip(char c)
 		}
 	}
 	return false;
-}
-
-void free2DCharArr(char** arr, int cols, int rows)
-{
-	for (int i = 0; i < cols; i++)
-	{
-		free(arr[i]);
-		arr[i] = nullptr;
-	}
-	free(arr);
 }

@@ -21,6 +21,8 @@ public:
 	BoardFactory(int rows, int cols, string path);
 	//todo: comment
 	int getPlayerBoards(char** boardA, char** boardB);
+	/* free allocated memory associated with board */
+	static void destroyBoard(char** board, int rows, int cols);
 private:
 	/* destructor. */
 	~BoardFactory();
@@ -29,8 +31,8 @@ private:
 	/* temp board. */
 	char **fullBoard = nullptr;
 	/* board properties. */
-	int boardRows;
-	int boardCols;
+	int boardRows=-1;
+	int boardCols=-1;
 	/* path to board file. */
 	string boardPath;
 	/* fill fullBoard with empty cell symbol. */
@@ -38,10 +40,10 @@ private:
 	/* return 2d char array. return null ptr if error. */
 	char** initBoard() const;
 	/* fill board with data from board file in path. */
-	int fillBoardFromFile();
+	int fillBoardFromFile() const;
 	/* check if board is valid and return 0 if so. return -1 if invalid and
 	 * print proper messages. */
-	int validateBoard();
+	int validateBoard() const;
 	/* remove ships with wrong shape or size from board. returns -1 if there are
 	 * invalid ships and prints proper messages. */
 	bool markInvalidShips(char** boardCpy) const;
