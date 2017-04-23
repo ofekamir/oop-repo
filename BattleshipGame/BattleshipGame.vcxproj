@@ -141,14 +141,21 @@
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameUtils.cpp" />
+    <ClCompile Include="NaivePlayer.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PredictedPlayer.cpp" />
     <ClCompile Include="Ship.cpp" />
+    <ClCompile Include="SmartPlayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameUtils.h" />
     <ClInclude Include="IBattleshipGameAlgo.h" />
+    <ClInclude Include="IBattleshipGameAlgoV2.h" />
+    <ClInclude Include="NaivePlayer.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PredictedPlayer.h" />
     <ClInclude Include="Ship.h" />
+    <ClInclude Include="SmartPlayer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
