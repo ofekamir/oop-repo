@@ -17,7 +17,8 @@ void GameOver(int winner, Player*(players)[2]);
 int main(int argc, char* argv[])
 {
 	//Variables to be used:
-	int err, i, winner = -1;
+	int err;
+	int i, winner = -1;
 	Player* players[2];
 	pair<int, int> attackPoint;
 	pair <AttackResult, int> attackResultAndScore, ownGoalResultAndScore;
