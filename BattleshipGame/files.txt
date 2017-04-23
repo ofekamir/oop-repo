@@ -1,6 +1,8 @@
 BattleshipGame.vcxproj
 BattleshipGame.vcxproj.filters
 BattleshipGame.vcxproj.user
+BoardFactory.cpp
+BoardFactory.h
 clean_movesA.attack-a
 clean_movesB.attack-b
 CMakeLists.txt
@@ -10,8 +12,15 @@ GameUtils.cpp
 GameUtils.h
 good_board_0.sboard
 IBattleshipGameAlgo.h
+IBattleshipGameAlgoV2.h
+NaivePlayer.cpp
+NaivePlayer.h
 Player.cpp
 Player.h
+PredictedPlayer.cpp
+PredictedPlayer.h
 Ship.cpp
 Ship.h
+SmartPlayer.cpp
+SmartPlayer.h
 students.txt

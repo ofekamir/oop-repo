@@ -4,6 +4,7 @@
 #include "Player.h"
 #include <vector>
 #include <filesystem>
+#include "BoardFactory.h"
 
 using namespace std;
 #define MAX_PATH 1024

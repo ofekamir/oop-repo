@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BoardFactory.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameUtils.cpp" />
     <ClCompile Include="NaivePlayer.cpp" />
@@ -148,6 +149,7 @@
     <ClCompile Include="SmartPlayer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BoardFactory.h" />
     <ClInclude Include="GameUtils.h" />
     <ClInclude Include="IBattleshipGameAlgo.h" />
     <ClInclude Include="IBattleshipGameAlgoV2.h" />

@@ -23,7 +23,6 @@
 #define ATTACK_B_EXTENSION "attack-b"
 #define WORKING_DIR "Working Directory"
 
-
 void GameUtils::cleanBoard(char board[FULL_BOARD_LEN][FULL_BOARD_LEN]) {
 	for (int i = 0; i < FULL_BOARD_LEN; i++) {
 		for (int j = 0; j < FULL_BOARD_LEN; j++) {
