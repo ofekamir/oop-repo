@@ -9,17 +9,6 @@ Ship::Ship(char _type) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 	type = _type;
 	switch (tolower(_type)) {
 	case RUBBER_BOAT:
