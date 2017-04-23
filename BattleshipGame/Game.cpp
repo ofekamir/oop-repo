@@ -13,8 +13,6 @@ using namespace std;
 
 void GameOver(int winner, Player*(players)[2]);
 
-// ofek you are super gay fucker
-
 int main(int argc, char* argv[])
 {
 	//Variables to be used:
@@ -26,8 +24,6 @@ int main(int argc, char* argv[])
 	char boards[3][FULL_BOARD_LEN][FULL_BOARD_LEN]; /* [playerA's board, playerB's board, full board]  */
 	vector<string> inputFiles = { "", "", "" }; //[battle board, playerA's attack board, playerB's attack board]
 	vector<string> messages;
-
-	//ofek you are gay
 
 	//Prepare the game:
 	err = GameUtils::getInputFiles(inputFiles, messages, argc, argv);
