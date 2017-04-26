@@ -18,6 +18,9 @@ int main(int argc, char* argv[])
 {
 	//Variables to be used:
 	int err;
+
+
+	
 	int i, winner = -1;
 	Player* players[2];
 	pair<int, int> attackPoint;
